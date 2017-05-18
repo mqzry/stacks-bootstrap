@@ -1,0 +1,18 @@
+:8080
+rewrite / {
+	ext !.js !.css
+	r  /(.+)
+	to /index.php?page={1}
+}
+
+rewrite /tag {
+	r  /(.+)
+	to /index.php?page=tag&tag={1}
+}
+
+tls off
+root ..
+gzip
+log access.log
+errors error.log
+fastcgi / 127.0.0.1:9000 php
