@@ -11,7 +11,7 @@ rewrite /tag {
 }
 
 tls off
-root ..
+root ../stacks-website
 gzip
 log access.log
 errors error.log

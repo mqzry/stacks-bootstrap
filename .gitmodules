@@ -1,0 +1,8 @@
+[submodule "stacks-website"]
+	path = stacks-website
+	url = https://github.com/stacks/stacks-website
+	ignore = dirty
+[submodule "stacks-tools"]
+	path = stacks-tools
+	url = https://github.com/stacks/stacks-tools
+	ignore = dirty
