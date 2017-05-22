@@ -9,3 +9,4 @@
 [submodule "docker-texlive"]
 	path = docker-texlive
 	url = git@github.com:mqzry/docker-texlive.git
+	ignore = dirty
