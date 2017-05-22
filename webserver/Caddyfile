@@ -1,14 +1,4 @@
-:8080
-rewrite / {
-	ext !.js !.css
-	r  /(.+)
-	to /index.php?page={1}
-}
-
-rewrite /tag {
-	r  /(.+)
-	to /index.php?page=tag&tag={1}
-}
+:8081
 
 tls off
 root ../stacks-website
@@ -16,3 +6,177 @@ gzip
 log access.log
 errors error.log
 fastcgi / 127.0.0.1:9000 php
+
+
+rewrite / {
+	r  about$
+	to index.php?page=about
+}
+rewrite / {
+	r  acknowledgements$
+	to index.php?page=acknowledgements
+}
+rewrite / {
+	r  api$
+	to index.php?page=api
+}
+rewrite / {
+	r  bibliography$
+	to index.php?page=bibliography
+}
+rewrite / {
+	r  bibliography/(.+)$
+	to index.php?page=bibliography&key={1}
+}
+rewrite / {
+	r  browse$
+	to index.php?page=browse
+}
+rewrite / {
+	r  chapter/(.+)$
+	to index.php?page=chapter&chapter={1}
+}
+rewrite / {
+	r  contribute$
+	to index.php?page=contribute
+}
+rewrite / {
+	r  data/tag/(.+)/content/(.+)/(.+)$
+	to php/api/tag.php?tag={1}&statement={2}&format={3}
+}
+rewrite / {
+	r  data/tag/(.+)/content/(.+)$
+	to php/api/tag.php?tag={1}&statement={2}
+}
+rewrite / {
+	r  data/tag/(.+)/meta$
+	to php/api/meta.php?tag={1}
+}
+rewrite / {
+	r  data/tag/(.+)/graph/cluster$
+	to data/{1}-tree.json
+}
+rewrite / {
+	r  data/tag/(.+)/graph/collapsible$
+	to data/{1}-packed.json
+}
+rewrite / {
+	r  data/tag/(.+)/graph/force$
+	to data/{1}-force.json
+}
+rewrite / {
+	r  data/slogan/random
+	to php/api/slogan.php
+}
+rewrite / {
+	r  data/slogan/(.+)
+	to php/api/slogan.php?slogan={1}
+}
+rewrite / {
+	r  download/(.+)$
+	to tex/tags/tmp/{1}
+}
+rewrite / {
+	r  markdown$
+	to index.php?page=markdown
+}
+rewrite / {
+	r  recent-comments$
+	to index.php?page=recent-comments
+}
+rewrite / {
+	r  recent-comments/(.+)$
+	to index.php?page=recent-comments&number={1}
+}
+rewrite / {
+	r  recent-comments.xml$
+	to php/feeds/commentsfeed.php
+}
+rewrite / {
+	r  recent-comments.rss$
+	to php/feeds/commentsfeed.php
+}
+rewrite / {
+	r  slogans$
+	to sloganerator/input.php
+}
+rewrite / {
+	r  slogans/$
+	to sloganerator/input.php
+}
+rewrite / {
+	r  slogans/style.css$
+	to sloganerator/style.css
+}
+rewrite / {
+	r  slogans/slogan.js$
+	to sloganerator/slogan.js
+}
+rewrite / {
+	r  slogans/(.+)$
+	to sloganerator/input.php?tag={1}
+}
+rewrite / {
+	r  comments-feed.rss$
+	to php/feeds/commentsfeed.php
+}
+rewrite / {
+	r  search$
+	to index.php?page=search
+}
+rewrite / {
+	r  lookup$
+	to php/redirects/lookup.php
+}
+rewrite / {
+	r  tag$
+	to index.php?page=tag
+}
+rewrite / {
+	r  tag/tag/(.+)$
+	to tag/{1}
+}
+rewrite / {
+	r  tag/(.+)/statistics$
+	to index.php?page=statistics&tag={1}
+}
+rewrite / {
+	r  tag/(.+)/history$
+	to index.php?page=history&tag={1}
+}
+rewrite / {
+	r  tag/(.+)/graph/collapsible$
+	to php/graphs/collapsible.php?tag={1}
+}
+rewrite / {
+	r  tag/(.+)/graph/cluster$
+	to php/graphs/cluster.php?tag={1}
+}
+rewrite / {
+	r  tag/(.+)/graph/force$
+	to php/graphs/force.php?tag={1}
+}
+rewrite / {
+	r  tag/(.+)$
+	to index.php?page=tag&tag={1}
+}
+rewrite / {
+	r  tags$
+	to index.php?page=tags
+}
+rewrite / {
+	r  todo$
+	to index.php?page=todo
+}
+rewrite / {
+	r  tag/$
+	to index.php?page=tag
+}
+rewrite / {
+	r  browse/$
+	to index.php?page=browse
+}
+rewrite / {
+	r  downloads$
+	to index.php?page=browse
+}

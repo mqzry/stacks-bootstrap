@@ -3,7 +3,7 @@ from os.path import join, dirname, realpath
 import re
 
 def replaceProjectPath(path):
-	replaceFileContent('config.ini', r'project = "[^\"]*"', 'project = "{}"'.format(path))
+	replaceFileContentRegex('config.ini', r'project = "[^\"]*"', 'project = "{}"'.format(path))
 
 def replaceHost(host):
 	replaceFileContent("tex/scripts/tag_up.py", "http://stacks.math.columbia.edu/tag/", host)
@@ -31,10 +31,8 @@ def replaceFileContentRegex(relpath, regex, replaceString):
 	path = join(bootstrapRoot, relpath)
 	f = open(path, "r")
 	content = f.read()
-	# print content
 	f.close()
 	content = re.sub(regex, replaceString, content)
-	# print content
 	f = open(path, "w")	
 	f.write(content)
 	f.close()
@@ -45,7 +43,7 @@ host = sys.argv[1]
 currentpath = dirname(sys.argv[0])
 bootstrapRoot = dirname(realpath('__file__'))
 
-# replaceProjectPath(join(currentpath, 'stacks-website'))
-# replaceHost(host)
-# bootstrapXyJax()
+replaceProjectPath(join(currentpath, 'stacks-website'))
+replaceHost(host)
+bootstrapXyJax()
 replacePDFLATEXCommand()
