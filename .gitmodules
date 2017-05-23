@@ -7,6 +7,6 @@
 	url = https://github.com/stacks/stacks-tools
 	ignore = dirty
 [submodule "docker-texlive"]
-	path = docker-texlive
+	path = docker/docker-texlive
 	url = git@github.com:mqzry/docker-texlive.git
 	ignore = dirty
