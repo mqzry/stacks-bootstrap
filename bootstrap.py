@@ -38,8 +38,11 @@ def replaceFileContentRegex(relpath, regex, replaceString):
 	f.close()
 
 
+if len(sys.argv) = 2:
+	host = sys.argv[1]
+else:
+	host = "localhost/tag"
 
-host = sys.argv[1]
 currentpath = dirname(sys.argv[0])
 bootstrapRoot = dirname(realpath('__file__'))
 

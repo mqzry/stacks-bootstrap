@@ -1,5 +1,8 @@
-echo "Reinitializing database"
-python stacks-tools/create.py
+echo "Initializing database"
+cd stacks-tools
+rm -f stacks.sqlite
+python create.py
+cd ..
 rm -rf stacks-website/database 
 mkdir stacks-website/database
 chmod 0777 stacks-website/database
@@ -10,3 +13,4 @@ chmod 0777 stacks-website/php/cache
 cd stacks-tools
 python update.py
 python macros.py
+cd ..
