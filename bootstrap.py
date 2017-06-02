@@ -2,12 +2,6 @@ import sys
 from os.path import join, dirname, realpath
 import re
 
-def replaceProjectPath(path):
-	replaceFileContentRegex('config.ini', r'project = "[^\"]*"', 'project = "{}"'.format(path))
-
-def replaceHost(host):
-	replaceFileContent("tex/scripts/tag_up.py", "http://stacks.math.columbia.edu/tag/", host)
-
 def bootstrapXyJax():
 	searchString = "MathJax.Ajax.loadComplete(\"[MathJax]/extensions/TeX/xypic.js\");"
 	replaceString = "MathJax.Ajax.loadComplete(\"/js/XyJax/extensions/TeX/xypic.js\");"
@@ -38,7 +32,7 @@ def replaceFileContentRegex(relpath, regex, replaceString):
 	f.close()
 
 
-if len(sys.argv) = 2:
+if len(sys.argv) == 2:
 	host = sys.argv[1]
 else:
 	host = "localhost/tag"
@@ -46,7 +40,7 @@ else:
 currentpath = dirname(sys.argv[0])
 bootstrapRoot = dirname(realpath('__file__'))
 
-replaceProjectPath(join(currentpath, 'stacks-website'))
-replaceHost(host)
+replaceFileContent("config.ini", "project = \"\"", "project = \"stacks-website\"")
+replaceFileContent("config.ini", "database = \"\"", "database = \"database/stacks.sqlite\"")
+replaceFileContent("tex/scripts/tag_up.py", "http://stacks.math.columbia.edu/tag/", host)
 bootstrapXyJax()
-replacePDFLATEXCommand()

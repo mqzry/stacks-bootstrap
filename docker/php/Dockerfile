@@ -1,4 +1,5 @@
-FROM sadar/stacks-texlive:1.1.0
+FROM ubuntu:16.04
+MAINTAINER Mohamed Hashi <maxamedhashi@gmail.com>
 
 RUN apt-get update && apt-get install -y language-pack-en-base
 RUN locale-gen en_US.UTF-8 &&\

@@ -13,4 +13,3 @@ chmod 0777 stacks-website/php/cache
 cd stacks-tools
 python update.py
 python macros.py
-cd ..

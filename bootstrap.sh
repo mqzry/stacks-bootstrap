@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
-path_to_caddy=$(which caddy)
-if [ -x "$path_to_caddy" ] ; then
-	echo "Caddy bin already here: $path_to_caddy"
-else
-	curl https://getcaddy.com | bash
-fi
-
 git submodule init
 git submodule update
-
-
 cd stacks-website
 git submodule init
 git submodule update
@@ -25,8 +16,10 @@ python ../bootstrap.py $1
 cd tex
 rm -rf tags/tmp/*
 make tags
+cd ../..
 
 ./initDB.sh
 
+cd stacks-tools
 mkdir ../stacks-website/data
 python graphs.py
