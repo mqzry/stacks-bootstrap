@@ -8,5 +8,5 @@
 	ignore = dirty
 [submodule "docker-texlive"]
 	path = docker/docker-texlive
-	url = git@github.com:mqzry/docker-texlive.git
+	url = https://github.com/mqzry/docker-texlive
 	ignore = dirty

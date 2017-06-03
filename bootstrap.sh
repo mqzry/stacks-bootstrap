@@ -5,7 +5,7 @@ cd stacks-website
 git submodule init
 git submodule update
 if [ ! -d "tex" ] ; then
-	git clone git://github.com/stacks/stacks-project tex
+	git clone https://github.com/stacks/stacks-project tex
 fi
 
 ln -s css/stacks-editor.css js/EpicEditor/epiceditor/themes/editor/stacks-editor.css
