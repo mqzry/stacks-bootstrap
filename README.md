@@ -13,5 +13,8 @@ All the steps in described in https://github.com/stacks/stacks-website/ are incl
 The tex compiling part is done inside a docker image containing texlive 2015.
 An image with apache2 and php runs the website part.
 
+So after the project is bootstrapped, there are two docker images running:
+sadar/stacks-texlive and sadar/stacks-php. The tex part of the stacks project is mounted into stacks-texlive and the website part is mounted into stacks-php. 
+
 ## How to use it
 Run boostrap.sh
