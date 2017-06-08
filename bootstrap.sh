@@ -15,7 +15,7 @@ ln -s css/stacks-preview.css js/EpicEditor/epiceditor/themes/editor/stacks-previ
 read -p "What hostname should be used?
 " host
 
-docker run -d -p 8080:80 -v $PWD:/var/www/html -t sadar/stacks-php > /dev/null 2>&1
+docker run -d -p 8080:80 -v $PWD:/var/www/html -t sadar/stacks-php
 
 python ../bootstrap.py ${host}
 
