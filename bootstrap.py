@@ -36,7 +36,7 @@ else:
 currentpath = dirname(sys.argv[0])
 bootstrapRoot = dirname(realpath('__file__'))
 
-replaceFileContent("config.ini", "project = \"\"", "project = \"stacks-website\"")
+replaceFileContent("config.ini", "project = \"\"", "project = \"/var/www/html\"")
 replaceFileContent("config.ini", "database = \"\"", "database = \"database/stacks.sqlite\"")
 replaceFileContent("tex/scripts/tag_up.py", "http://stacks.math.columbia.edu/tag/", host)
 bootstrapXyJax()
